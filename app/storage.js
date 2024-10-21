@@ -1,16 +1,16 @@
-export function saveNote(name, content) {
+export const saveNote = (name, content) => {
   const notes = getNotes();
   notes.push({ name, content });
-  localStorage.setItem('notes', JSON.stringify(notes));
-}
+  localStorage.setItem("notes", JSON.stringify(notes));
+};
 
-export function getNotes() {
-  const notes = localStorage.getItem('notes');
+export const getNotes = () => {
+  const notes = localStorage.getItem("notes");
   return notes ? JSON.parse(notes) : [];
-}
+};
 
-export function removeNote(index) {
+export const removeNote = (index) => {
   const notes = getNotes();
-  notes.splice(index, 1);  // Remove note at the specified index
-  localStorage.setItem('notes', JSON.stringify(notes));  // Update Local Storage
-}
+  notes.splice(index, 1); // Remove note at the specified index
+  localStorage.setItem("notes", JSON.stringify(notes)); // Update Local Storage
+};
